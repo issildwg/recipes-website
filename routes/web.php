@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {       // this should return the home page
-    return view('welcome');
+    return "this is a  homepage";    
+    //return view('welcome');
     /*  -display all recipes - alphabetically
         -have menu?
         -user profile
@@ -27,8 +28,12 @@ Route::redirect('/home', '/');            //redirects you back to home page if y
 
 
 
-Route::get('/home/{name}', function ($name) {           //takes users to their profile home (so typing localhost/home/issi takes me back to my profile returns 'Welcome back to your homepage issi!')
+Route::get('home/{name?}', function ($name = null) {          //takes users to their profile home or takes them back to homepage if left empty - (so typing localhost/home/issi takes me back to my profile returns 'Welcome back to your homepage issi!')
     return "Welcome back to your homepage $name!";
+
+        //DOES THIS WORK IF NOT ALL POSSIBLE USERS HAVE PAGES
+
+
     /* displays :
         -user details
         -user settings (to update details)
@@ -41,6 +46,9 @@ Route::get('/home/{name}', function ($name) {           //takes users to their p
 
 Route::get('/recipe/{name}', function ($name) {           //takes users to specific recipes
     return "$name";
+
+    //DOES THIS WORK IF NOT ALL POSSIBLE RECIPES HAVE PAGES
+
     /* displays :
         -recipe details
         -user who posted recipe
