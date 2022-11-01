@@ -1,6 +1,7 @@
 <?php
 
 namespace Database\Seeders;
+use App\Comment;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,6 +15,8 @@ class CommentTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $C1=new Comment;
+        $C1->comment('recipe too simple :(');
+        $C1->save();
     }
 }

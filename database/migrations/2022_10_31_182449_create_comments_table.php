@@ -16,6 +16,11 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+
+            $table->string('comment');
+            $table->timestamp('posted');
+            //link to post
+            //link to a profile
         });
     }
 
