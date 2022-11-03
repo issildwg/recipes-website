@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('users', function (Blueprint $table) {
+        /*Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
@@ -21,6 +21,19 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+        }); */
+        
+        Schema::create('profiles', function (Blueprint $table) {
+            $table->id();
+            $table->timestamps();                                   // date and time account was created
+
+            $table->string('name');
+            $table->string('password');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();     // has verified email or not, and if yes - when?
+            $table->rememberToken();                                //remembers user data so they can move through the website easier
+
+        //
         });
     }
 
