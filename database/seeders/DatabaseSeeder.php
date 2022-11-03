@@ -20,5 +20,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+
+            //be aware of the order here
+        $this->call(ProfileTableSeeder::class);
+        $this->call(RecipeTableSeeder::class);
+        $this->call(CommentTableSeeder::class);
     }
 }
