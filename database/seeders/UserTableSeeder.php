@@ -17,6 +17,8 @@ class UserTableSeeder extends Seeder
     {
         $P1 = new Profile;
         $P1->name = "John Smith";
+        $P1->email = "123@me.com";
+        $P1->password = "12345678";
         $P1->save();
         //add fake email here?
         //do i need to add a password

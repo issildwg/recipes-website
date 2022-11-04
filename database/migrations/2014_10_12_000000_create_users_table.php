@@ -22,11 +22,10 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         }); */
-        
+
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
             $table->timestamps();                                   // date and time account was created
-
             $table->string('name');
             $table->string('password');
             $table->string('email')->unique();
