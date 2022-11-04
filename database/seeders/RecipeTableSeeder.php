@@ -16,8 +16,8 @@ class RecipeTableSeeder extends Seeder
     public function run()       //hardcode in a recipe here
     {
         $Egg = new Recipe;
-        $Egg->ingredients('egg','salt');            //this will definitely cause some issues
-        $Egg->recipe('salt the egg and enjoy');
+        $Egg->ingredients = "egg";
+        $Egg->recipe = "Salt the egg and enjoy";
         $Egg->save();
     }
 }

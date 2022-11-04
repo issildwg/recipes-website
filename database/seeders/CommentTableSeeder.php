@@ -16,7 +16,7 @@ class CommentTableSeeder extends Seeder
     public function run()
     {
         $C1=new Comment;
-        $C1->comment('recipe too simple :(');
+        $C1->comment = "recipe too simple :(";
         $C1->save();
     }
 }
