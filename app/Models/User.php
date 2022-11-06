@@ -13,7 +13,7 @@ class User extends Authenticatable
     use HasApiTokens, HasFactory, Notifiable;
 
     //mass asigns user names to the user db - shoudnt add these to the other tho as they are admin basis models 
-    protected $fillable = ['name', 'password', 'email',];
+    protected $fillable = ['id', 'name', 'password', 'email'];
 
     //The attributes that should be hidden for serialization.
     protected $hidden = ['password', 'remember_token',];

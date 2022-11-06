@@ -17,9 +17,9 @@ class UserTableSeeder extends Seeder
     public function run()       //hardcode user in here
     {
         $P1 = new User;
-        $P1->id = 1;
+        //$P1->id = 1;
         $P1->name = "John Smith";
-        $P1->email = "123@me.com";
+        $P1->email = "JSmith@gmail.com";
         $P1->password = "12345678";
         $P1->save();
         //add fake email here?

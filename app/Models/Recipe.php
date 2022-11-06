@@ -20,6 +20,8 @@ class Recipe extends Model
 
     }
 
+
+
         //links recipes to user 
     public function postable()
     {
