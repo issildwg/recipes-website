@@ -21,6 +21,16 @@ return new class extends Migration
             $table->timestamp('posted');
             //link to post
             //link to a profile
+
+            //bigInteger = primary key to user
+            $table->unsignedBigInteger('user_id');
+            //this relates recipes to the user via the key id
+            $table->foreign('user_id')-> references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+
+            //bigInteger = primary key to recipe
+            $table->unsignedBigInteger('recipe_id');
+            //this relates recipes to the user via the key id
+            $table->foreign('recipe_id')-> references('id')->on('recipes')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

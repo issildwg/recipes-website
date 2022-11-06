@@ -20,13 +20,10 @@ return new class extends Migration
             $table->string('ingredients');
             $table->string('recipe');
 
-            //bigInteger = 
-           // $table->bigInteger('user_id')->unsigned();
-            //this relates recipes to the user
-           // $table->foreign('user_id')-> references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-
-            //link up comments 
-            //link up profile
+            //bigInteger = primary key to user
+            $table->unsignedBigInteger('user_id');
+            //this relates recipes to the user via the key id
+            $table->foreign('user_id')-> references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

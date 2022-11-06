@@ -12,26 +12,17 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array<int, string>
-     */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-    ];
+    //mass asigns user names to the user db - shoudnt add these to the other tho as they are admin basis models 
+    protected $fillable = ['name', 'password', 'email',];
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+    //The attributes that should be hidden for serialization.
+    protected $hidden = ['password', 'remember_token',];
+
+    //links the posts and comments to this
+    public function users(){
+        return $this->morphMany('App\Recipe', 'postable');
+        return $this->morphMany('App\Comment', 'commentable'); //commentable is a method in Comment.php
+    }
 
     /**
      * The attributes that should be cast.
