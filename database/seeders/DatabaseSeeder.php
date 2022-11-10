@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         // ]);
 
 
-            //be aware of the order here
+     //be aware of the order here
         $this->call(UserTableSeeder::class);
         $this->call(RecipeTableSeeder::class);
         $this->call(CommentTableSeeder::class);

@@ -17,6 +17,8 @@ class CommentTableSeeder extends Seeder
     {
         $C1=new Comment;
         $C1->comment = "recipe too simple :(";
+        $C1->user_id = 1;
+        $C1->recipe_id = 5;
         $C1->save();
     }
 }

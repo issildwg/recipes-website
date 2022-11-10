@@ -11,6 +11,17 @@ class Comment extends Model
 
     public function commentable()
     {
-        return $this->morphTo();
+        return $this->morphOne('App\Recipe', 'postable');
+    }   // is it this or    return $this->morphTo();
+
+    /*
+    public function commentableUser()
+    {
+        return $this->belongsTo(User::class);
     }
+
+    public function commentableRecipe()
+    {
+        return $this->belongsTo(Recipe::class);
+    }*/
 }

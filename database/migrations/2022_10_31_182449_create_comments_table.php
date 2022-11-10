@@ -18,9 +18,8 @@ return new class extends Migration
             $table->timestamps();
 
             $table->string('comment');
-            $table->timestamp('posted');
-            //link to post
-            //link to a profile
+            //$table->timestamp('posted');
+
 
             //bigInteger = primary key to user
             $table->unsignedBigInteger('user_id');

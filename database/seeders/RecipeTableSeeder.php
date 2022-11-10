@@ -16,8 +16,11 @@ class RecipeTableSeeder extends Seeder
     public function run()       //hardcode in a recipe here
     {
         $Egg = new Recipe;
+        $Egg->id = 5;
+        $Egg->user_id = 1;
+        $Egg->title = "EGGS!!"; 
         $Egg->ingredients = "egg";
-        $Egg->recipe = "Salt the egg and enjoy";
+        $Egg->recipe = "idk mash it?";
         $Egg->save();
     }
 }
