@@ -20,9 +20,12 @@ class User extends Authenticatable
 
 
         //links the posts and comments to this
-    public function users(){
-        return $this->morphMany('App\Recipe', 'postable');      //postable and is a method in Recipe.php
-        return $this->morphMany('App\Comment', 'commentable'); //commentable and is a method in Comment.php
+    public function recipes(){
+        return $this->hasMany('App\Recipe', 'postable');      //postable and is a method in Recipe.php
+    }
+
+    public function comments(){
+        return $this->hasMany('App\Comment', 'commentableUser'); //commentableUser is a method in Comment.php that links a comment to a user
     }
 
     /**

@@ -9,19 +9,14 @@ class Comment extends Model
 {
     use HasFactory;
 
-    public function commentable()
-    {
-        return $this->morphOne('App\Recipe', 'postable');
-    }   // is it this or    return $this->morphTo();
-
-    /*
+    
     public function commentableUser()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo('App\User');
     }
 
     public function commentableRecipe()
     {
-        return $this->belongsTo(Recipe::class);
-    }*/
+        return $this->belongsTo('App\Recipe');
+    }
 }

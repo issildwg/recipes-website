@@ -21,10 +21,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('password');
             $table->string('email')->unique();
-           // $table->timestamp('email_verified_at')->nullable();     // has verified email or not, and if yes - when?
+            $table->timestamp('email_verified_at')->nullable();     // has verified email or not, and if yes - when?
             $table->rememberToken();                                //remembers user data so they can move through the website easier
-
-        //
         });
     }
 
