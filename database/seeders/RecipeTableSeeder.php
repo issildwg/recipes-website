@@ -13,7 +13,7 @@ class RecipeTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()       //hardcode in a recipe here
+    public function run()
     {
         $Egg = new Recipe;
         $Egg->id = 5;

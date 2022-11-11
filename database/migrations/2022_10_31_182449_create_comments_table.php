@@ -23,12 +23,12 @@ return new class extends Migration
 
             //bigInteger = primary key to user
             $table->unsignedBigInteger('user_id');
-            //this relates recipes to the user via the key id
+            //foreign key: this relates recipes to the user via the key id
             $table->foreign('user_id')-> references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
 
             //bigInteger = primary key to recipe
             $table->unsignedBigInteger('recipe_id');
-            //this relates recipes to the user via the key id
+            //foreign key: this relates recipes to the user via the key id
             $table->foreign('recipe_id')-> references('id')->on('recipes')->onDelete('cascade')->onUpdate('cascade');
         
         });

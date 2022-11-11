@@ -21,7 +21,6 @@ class CommentTableSeeder extends Seeder
         $C1->recipe_id = 5;
         $C1->save();
 
-            //comment factory
         \App\Models\Comment::factory(3)->create();
     }
 }

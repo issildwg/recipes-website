@@ -14,7 +14,7 @@ class UserTableSeeder extends Seeder
      *
      * @return void
      */
-    public function run()       //hardcode user in here
+    public function run()
     {
         $P1 = new User;
         $P1->id = 4;
@@ -23,7 +23,6 @@ class UserTableSeeder extends Seeder
         $P1->password = "12345678";
         $P1->save();
 
-             //user factory
         \App\Models\User::factory(3)->create();
     }
 }
