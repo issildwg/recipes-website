@@ -17,10 +17,13 @@ class RecipeTableSeeder extends Seeder
     {
         $Egg = new Recipe;
         $Egg->id = 5;
-        $Egg->user_id = 1;
+        $Egg->user_id = 6;
         $Egg->title = "EGGS!!"; 
         $Egg->ingredients = "egg";
         $Egg->recipe = "idk mash it?";
         $Egg->save();
+
+            //recipe factory
+        \App\Models\Recipe::factory(3)->create();
     }
 }

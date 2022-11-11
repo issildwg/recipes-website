@@ -18,10 +18,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
             $table->string('ingredients');
-            $table->string('recipe');
-          //  $table->string('recipe_id');//->whereRaw('recipe_id', '=', 'id');
-            //->references('id')->on('recipes');
-        
+            $table->string('recipe');        
 
             //bigInteger = primary key to user
             $table->unsignedBigInteger('user_id');

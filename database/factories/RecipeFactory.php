@@ -18,10 +18,14 @@ class RecipeFactory extends Factory
     {
 
         return [
-            'ingredients' => fake() -> ingredients(),
-            'title' => fake() -> title(),
-            'recipe' => fake() -> recipe(),
-            'id' => fake()->unique()->id()
+            //missing user id and recipe id (same with recipe) - copy hardcode
+            //words and sentences - should be arrays - figure this out gorl
+            'title' => fake() -> word(),
+            'ingredients' => fake() -> word(),
+            'recipe' => fake() -> sentence(),
+            'user_id' => 6, //fake() -> unique() -> numberBetween(0,4),     //hardcoding number of users - figure out how to make dynamic
+
+          //  'id' => fake()->unique()->id()
         ];
     }
 }

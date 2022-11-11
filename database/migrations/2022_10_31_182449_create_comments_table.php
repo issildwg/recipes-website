@@ -30,6 +30,7 @@ return new class extends Migration
             $table->unsignedBigInteger('recipe_id');
             //this relates recipes to the user via the key id
             $table->foreign('recipe_id')-> references('id')->on('recipes')->onDelete('cascade')->onUpdate('cascade');
+        
         });
     }
 

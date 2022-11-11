@@ -17,7 +17,9 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-            'comment' => fake() -> comment()
+            'comment' => fake() -> sentence(),
+            'user_id' => 6, //fake() -> numberBetween(0,4),  //hardcoding number of users - figure out how to make dynamic
+            'recipe_id' => 5, //fake() -> unique() -> numberBetween(0,4),     //hardcoding number of users - figure out how to make dynamic
         ];
     }
 }
