@@ -17,15 +17,12 @@ class RecipeFactory extends Factory
     public function definition()
     {
 
+//really ingredients needs to be an array of integers and words
         return [
-            //missing user id and recipe id (same with recipe) - copy hardcode
-            //words and sentences - should be arrays - figure this out gorl
             'title' => fake() -> word(),
-            'ingredients' => fake() -> word(),
-            'recipe' => fake() -> sentence(),
+            'ingredients' => fake() -> sentence(),
+            'recipe' => fake() -> paragraph(),
             'user_id' => 6, //fake() -> unique() -> numberBetween(0,4),     //hardcoding number of users - figure out how to make dynamic
-
-          //  'id' => fake()->unique()->id()
         ];
     }
 }
