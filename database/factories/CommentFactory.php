@@ -1,6 +1,8 @@
 <?php
 
 namespace Database\Factories;
+use App\Models\User;
+use App\Models\Recipe;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -16,11 +18,14 @@ class CommentFactory extends Factory
      */
     public function definition()
     {
+        $count = User::all() -> count();
+        $countr = Recipe::all() -> count();
+
         return [
             'comment' => fake() -> text(200),
-        
-            'user_id' => fake() -> numberBetween(1,4),  //hardcoding number of users - figure out how to make dynamic
-            'recipe_id' => fake() -> numberBetween(1,4),     //hardcoding number of recipes - figure out how to make dynamic
+            'user_id' => fake() -> numberBetween(1, $count),  //hardcoding number of users - figure out how to make dynamic
+            'recipe_id' => fake() -> numberBetween(1, $countr),     //hardcoding number of recipes - figure out how to make dynamic
         ];
     }
 }
+// App\Models\User::count()
