@@ -18,8 +18,9 @@ class CommentFactory extends Factory
     {
         return [
             'comment' => fake() -> text(200),
-            'user_id' => 6, //fake() -> numberBetween(0,4),  //hardcoding number of users - figure out how to make dynamic
-            'recipe_id' => 5, //fake() -> unique() -> numberBetween(0,4),     //hardcoding number of users - figure out how to make dynamic
+        
+            'user_id' => fake() -> numberBetween(1,4),  //hardcoding number of users - figure out how to make dynamic
+            'recipe_id' => fake() -> numberBetween(1,4),     //hardcoding number of recipes - figure out how to make dynamic
         ];
     }
 }

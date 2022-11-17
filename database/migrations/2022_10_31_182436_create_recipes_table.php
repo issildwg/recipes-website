@@ -24,7 +24,9 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             //this relates recipes to the user via the key id
             $table->foreign('user_id')-> references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-        });
+            // put this in controller $this->contentInterface->updateOrCreateInventory(array('user_id'=>$remoteId, 'user_id'=>NULL);
+
+         });
     }
 
     /**

@@ -14,6 +14,9 @@ class RecipeFactory extends Factory
      *
      * @return array<string, mixed>
      */
+
+
+
     public function definition()
     {
 
@@ -21,8 +24,8 @@ class RecipeFactory extends Factory
         return [
             'title' => fake() -> word(),
             'ingredients' => fake() -> sentence(),
-            'recipe' => fake() -> paragraph(),
-            'user_id' => 6, //fake() -> unique() -> numberBetween(0,4),     //hardcoding number of users - figure out how to make dynamic
+            'recipe' => fake() -> sentence(),
+            'user_id' => fake() -> unique() -> numberBetween(1,4),     //hardcoding number of users - figure out how to make  - use tinker - get full array of databas - get row number
         ];
     }
 }

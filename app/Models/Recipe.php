@@ -9,6 +9,8 @@ class Recipe extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['id', 'user_id'];
+
         //gets all of the posts comments
     public function comments() {
         //relates comment to recipe - recipe can have many comments
