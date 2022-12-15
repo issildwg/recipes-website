@@ -18,12 +18,12 @@ class CommentFactory extends Factory
      */
     public function definition()
     {
-        $count = User::all() -> count();
+        $countu = User::all() -> count();
         $countr = Recipe::all() -> count();
 
         return [
             'comment' => fake() -> text(200),
-            'user_id' => fake() -> numberBetween(1, $count),  //hardcoding number of users - figure out how to make dynamic
+            'user_id' => fake() -> numberBetween(1, $countu),  //hardcoding number of users - figure out how to make dynamic
             'recipe_id' => fake() -> numberBetween(1, $countr),     //hardcoding number of recipes - figure out how to make dynamic
         ];
     }
