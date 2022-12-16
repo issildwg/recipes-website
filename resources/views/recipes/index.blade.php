@@ -5,7 +5,10 @@
 @section('content')
     <p>Recipes:</p>
         <ul>
-            <li>Recipes</li>   <!-- list recipes -->
+            @foreach ($recipes as $recipe)
+                <li>{{$recipe->title}}</li> <!-- lists -->
+            @endforeach
+
         </ul>                  <!-- unordered list -->
 
 @endsection <!-- sandwiched like this since there is a lot of content -->
