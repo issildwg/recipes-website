@@ -16,6 +16,8 @@ use App\Http\Controllers\RecipeController;
 
 Route::get('/recipes', [RecipeController::class, 'index']);
 
+Route::get('/recipes/{id}', [RecipeController::class, 'show']);
+
 
 
 
