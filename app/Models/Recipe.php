@@ -15,6 +15,7 @@ class Recipe extends Model
     public function comments() {
         //relates comment to recipe - recipe can have many comments
         //first arg is the final model we wish to access, the second is the name of the intermediate model - as this is technically the interme
+       
         return $this->hasMany('App\Comment', 'commentableRecipe'); //commentableRecipe is a method in Comment.php that links a comment to a recipe
     }
 
@@ -22,6 +23,6 @@ class Recipe extends Model
     //links recipes to user 
     public function postable()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User', 'user_id');
     }  
 }
