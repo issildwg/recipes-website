@@ -21,11 +21,11 @@ class User extends Authenticatable
 
         //links the posts and comments to this
     public function recipes(){
-        return $this->hasMany('App\Recipe', 'postable');      //postable and is a method in Recipe.php
+        return $this->hasMany('App\Models\Recipe', 'postable');      //postable and is a method in Recipe.php
     }
 
     public function comments(){
-        return $this->hasMany('App\Comment', 'commentableUser'); //commentableUser is a method in Comment.php that links a comment to a user
+        return $this->hasMany('App\Model\Comment', 'commentableUser'); //commentableUser is a method in Comment.php that links a comment to a user
     }
 
     /**

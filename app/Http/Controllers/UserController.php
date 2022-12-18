@@ -48,7 +48,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);  //findOrFail allows 404 errors instead of breaking the code
+        return view('users.show', ['user' => $user]);
     }
 
     /**
