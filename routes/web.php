@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ Route::get('/recipes', [RecipeController::class, 'index']);
 
 Route::get('/recipes/{id}', [RecipeController::class, 'show']);
 
+Route::get('/users', [UserController::class, 'index']);
 
 
 

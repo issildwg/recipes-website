@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Recipe;
+use App\Models\User;
+
 use Illuminate\Http\Request;
 
-class RecipeController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +15,8 @@ class RecipeController extends Controller
     public function index()
     {
         //Think of this like a homepage
-        $recipes = Recipe::get();
-        return view('recipes.index', ['recipes' => $recipes]);      //second arg = array of data being sent to view
+        $users = User::get();
+        return view('users.index', ['users' => $users]);      //second arg = array of data being sent to view
     }
 
     /**
@@ -47,8 +48,7 @@ class RecipeController extends Controller
      */
     public function show($id)
     {
-        $recipe = Recipe::findOrFail($id);
-        return view('recipes.show', ['recipe' => $recipe]);
+        //
     }
 
     /**
