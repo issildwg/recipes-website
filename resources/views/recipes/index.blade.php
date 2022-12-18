@@ -6,7 +6,7 @@
     <p>Recipes:</p>
         <ul>
             @foreach ($recipes as $recipe)
-                <li>{{$recipe->title}}</li> <!-- lists -->
+                <li><a href='{{ route('recipes.show', ['id' => $recipe->id])}}'>{{$recipe->title}}</a></li> <!-- lists --> {{-- the <a href...> creates a link--}}
             @endforeach
 
         </ul>                  <!-- unordered list -->
