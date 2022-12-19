@@ -11,9 +11,9 @@
         <!-- checks if has created recipes and prints accordingly -->
 
         <li>Recipes:    
-            @if ($recipeTitle)
+            @if ($recipes)
 
-                @foreach ($recipeTitle as $recipe)
+                @foreach ($recipes as $recipe)
                     <li><a href='/recipes/{{$recipe->id}}'>{{$recipe->title}}</a></li>
 {{--                <li><a href='{{ route('recipes.show', ['id' => $recipe->id])}}'>{{$recipe->title}}</a></li> <!-- lists --> {{-- the <a href...> creates a link--}}
                 @endforeach
