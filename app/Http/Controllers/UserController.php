@@ -53,7 +53,7 @@ class UserController extends Controller
         $recipes = Recipe::where('user_id',($id))->get(); // prints recipes but gives its a super weird format  
 
     
-        return view('users.show', ['user' => $user, 'recipeID' => $recipeID, 'recipeTitle' => $recipeTitle]); 
+        return view('users.show', ['user' => $user, 'recipes' => $recipes]); 
     }
 
     /**
