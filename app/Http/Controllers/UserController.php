@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use App\Models\Recipe;
 
 use Illuminate\Http\Request;
 
@@ -49,7 +50,9 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);  //findOrFail allows 404 errors instead of breaking the code
-        return view('users.show', ['user' => $user]);
+        $recipes = Recipe::where('user_id',($id))->get('title', 'recipe_id'); // prints recipes but gives its a super weird format
+    
+        return view('users.show', ['user' => $user, 'recipes' => $recipes]);
     }
 
     /**

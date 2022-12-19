@@ -22,7 +22,9 @@ Route::get('/recipes/{id}', [RecipeController::class, 'show'])
 
 Route::get('/users', [UserController::class, 'index']);
 
-Route::get('/users/{id}', [UserController::class, 'show']);
+Route::get('/users/{id}', [UserController::class, 'show'])
+    ->name('users.show');
+
 
 
 
