@@ -11,10 +11,20 @@
         <!-- checks if has created recipes and prints accordingly -->
 
         <li>Recipes:    
-            @if ($recipes)
+            @if ($recipeTitle)
+
+                @foreach ($recipeTitle as $recipe)
+                    <li><a href='/recipes/{{$recipe->id}}'>{{$recipe->title}}</a></li>
+{{--                <li><a href='{{ route('recipes.show', ['id' => $recipe->id])}}'>{{$recipe->title}}</a></li> <!-- lists --> {{-- the <a href...> creates a link--}}
+                @endforeach
+
+
+
 {{--            <li><a href='{{ route('recipes.show', ['id' => $recipe->id])}}'>{{$recipe->title}}</a></li> <!-- lists --> {{-- the <a href...> creates a link--}}
-                {{--check lectures from 8-15 nov--}}
-                {{$recipes}}
+                {{-- check lectures from 8-15 nov
+                {{$recipeTitle}} --}}
+               
+
             @else
                 None created yet!
             @endif

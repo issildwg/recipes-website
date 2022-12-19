@@ -25,8 +25,12 @@ Route::get('/users', [UserController::class, 'index']);
 Route::get('/users/{id}', [UserController::class, 'show'])
     ->name('users.show');
 
-
-
+/*      create recipe forms
+    Route::get('recipes/create', [RecipeController::class, 'create'])
+    ->name('recipes.create');
+Route::post('recipes', [RecipeController::class, 'store'])
+    ->name('recipes.store');
+*/
 
 
 Route::get('/dashboard', function () {

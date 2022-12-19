@@ -50,9 +50,10 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);  //findOrFail allows 404 errors instead of breaking the code
-        $recipes = Recipe::where('user_id',($id))->get('title', 'recipe_id'); // prints recipes but gives its a super weird format
+        $recipes = Recipe::where('user_id',($id))->get(); // prints recipes but gives its a super weird format  
+
     
-        return view('users.show', ['user' => $user, 'recipes' => $recipes]);
+        return view('users.show', ['user' => $user, 'recipeID' => $recipeID, 'recipeTitle' => $recipeTitle]); 
     }
 
     /**
