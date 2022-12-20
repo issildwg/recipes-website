@@ -6,7 +6,7 @@
     <ul>
         <p>Author: {{$recipe->postable->name}}</p>    <!-- uses the relationship functionality of laravel-->
         <p>Ingredients: </p>
-        {{-- bullet points for ingredients--}}
+        {{-- bullet points for ingredients -> write this as while loop? (-> first etc)--}}
         <UL>
             <LI>{{$recipe->ingredients}}</LI>
             <LI>ingredient two</LI>
@@ -14,7 +14,7 @@
         </UL>       
         
         <p>Recipe: </p>     
-        {{-- numbers for method--}}
+        {{-- numbers for method  -> write this as while loop? (-> first etc)--}}
         <OL>
             <LI>{{$recipe->recipe}}</LI>
             <LI>step two</LI>
