@@ -21,10 +21,12 @@
             @else
                 None created yet!
             @endif
-
-            
             </ul>
+            
         </p>
+
+        <p><a href='{{ route('recipes.create') }}'>New Recipe</a></p>
+
 
    
     

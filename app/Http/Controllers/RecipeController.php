@@ -23,9 +23,9 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create()        //doesnt actually create, just gives user the form to create something
     {
-        //
+        return view('recipes.create');
     }
 
     /**
@@ -36,7 +36,7 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request['title']);
     }
 
     /**

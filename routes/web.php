@@ -15,22 +15,30 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/recipes', [RecipeController::class, 'index']);
+Route::get('/recipes', [RecipeController::class, 'index'])
+    ->name('recipes.index');
+
+//      create recipe forms
+Route::get('recipes/create', [RecipeController::class, 'create'])
+    ->name('recipes.create');
+
+Route::post('recipes', [RecipeController::class, 'store'])
+    ->name('recipes.store');
 
 Route::get('/recipes/{id}', [RecipeController::class, 'show'])
     ->name('recipes.show'); //this bit helps with the linking
+    
 
-Route::get('/users', [UserController::class, 'index']);
+Route::get('/users', [UserController::class, 'index'])
+    ->name('users.index');
 
 Route::get('/users/{id}', [UserController::class, 'show'])
     ->name('users.show');
 
-/*      create recipe forms
-    Route::get('recipes/create', [RecipeController::class, 'create'])
-    ->name('recipes.create');
-Route::post('recipes', [RecipeController::class, 'store'])
-    ->name('recipes.store');
-*/
+
+
+
+
 
 
 Route::get('/dashboard', function () {

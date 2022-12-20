@@ -10,5 +10,5 @@
             @endforeach
 
         </ul>                  <!-- unordered list -->
-
+        
 @endsection <!-- sandwiched like this since there is a lot of content -->
