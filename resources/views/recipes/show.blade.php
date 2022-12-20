@@ -4,9 +4,22 @@
 
 @section('content')
     <ul>
-        <li>Author: {{$recipe->postable->name}}</li>    <!-- uses the relationship functionality of laravel-->
-        <li>Ingredients: {{$recipe->ingredients}}</li>
-        <li>Recipe: {{$recipe->recipe}}</li>      
+        <p>Author: {{$recipe->postable->name}}</p>    <!-- uses the relationship functionality of laravel-->
+        <p>Ingredients: </p>
+        {{-- bullet points for ingredients--}}
+        <UL>
+            <LI>{{$recipe->ingredients}}</LI>
+            <LI>ingredient two</LI>
+            <LI>ingredient three</LI>
+        </UL>       
+        
+        <p>Recipe: </p>     
+        {{-- numbers for method--}}
+        <OL>
+            <LI>{{$recipe->recipe}}</LI>
+            <LI>step two</LI>
+            <LI>step three</LI>
+        </OL>        
     </ul>    
     
 @endsection <!-- sandwiched like this since there is a lot of content -->

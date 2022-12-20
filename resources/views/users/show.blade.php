@@ -3,34 +3,27 @@
 @section('title', 'User Profile')
 
 @section('content')
-    <ul>
-        <li>Name: {{$user->name}}</li>
-        <li>Email: {{$user->email}}</li>
-        <li>Password: {{$user->password}}</li>   
+    
+        <p>Name: {{$user->name}}</p>
+        <p>Email: {{$user->email}}</p>
+        <p>Password: {{$user->password}}</p>   
         
         <!-- checks if has created recipes and prints accordingly -->
-
-        <li>Recipes:    
+        <p>Recipes: 
+            <ul>   {{--adding this makes the list cascade--}}
             @if ($recipes)
 
                 @foreach ($recipes as $recipe)
                     <li><a href='/recipes/{{$recipe->id}}'>{{$recipe->title}}</a></li>
-{{--                <li><a href='{{ route('recipes.show', ['id' => $recipe->id])}}'>{{$recipe->title}}</a></li> <!-- lists --> {{-- the <a href...> creates a link--}}
                 @endforeach
 
-
-
-{{--            <li><a href='{{ route('recipes.show', ['id' => $recipe->id])}}'>{{$recipe->title}}</a></li> <!-- lists --> {{-- the <a href...> creates a link--}}
-                {{-- check lectures from 8-15 nov
-                {{$recipeTitle}} --}}
-               
-
+{{--            this line isnt implemented yet - user 4 --}}
             @else
                 None created yet!
             @endif
-             
-        </li>
+            </ul>
+        </p>
 
-    </ul>    
+   
     
 @endsection <!-- sandwiched like this since there is a lot of content -->
