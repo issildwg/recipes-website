@@ -36,7 +36,14 @@ class RecipeController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request['title']);
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'ingredients' => 'required',
+            'recipe' => 'required'
+            //'Author' => 'required|user'
+        ]);
+
+        dd('Passed Validation!');
     }
 
     /**
