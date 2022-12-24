@@ -10,5 +10,9 @@
             @endforeach
 
         </ul>                  <!-- unordered list -->
+    
+        
+        
+        {{ $recipes->links() }}
 
 @endsection <!-- sandwiched like this since there is a lot of content -->

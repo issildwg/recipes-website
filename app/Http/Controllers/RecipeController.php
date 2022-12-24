@@ -5,6 +5,7 @@ use App\Models\Recipe;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Session;
+use Illuminate\Support\Facades\DB;
 
 class RecipeController extends Controller
 {
@@ -17,7 +18,9 @@ class RecipeController extends Controller
     {
         //Think of this like a homepage
         $recipes = Recipe::get();
-        return view('recipes.index', ['recipes' => $recipes]);      //second arg = array of data being sent to view
+        return view('recipes.index', [
+            'recipes' => DB::table('recipes')->paginate(10)
+        ]);      //second arg = array of data being sent to view
     }
 
     /**
@@ -107,6 +110,6 @@ class RecipeController extends Controller
         $recipe = Recipe::findOrFail($id);
         $recipe->delete();
 
-        return redirect()->route('recipes.index')->with('message', 'Recipe has been deleted');
+        return redirect()->route('recipes')->with('message', 'Recipe has been deleted');
     }
 }
