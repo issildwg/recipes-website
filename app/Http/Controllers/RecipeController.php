@@ -48,9 +48,7 @@ class RecipeController extends Controller
             'recipe' => 'required|min:1',
             'user_id' => 'required|min:1'
         ]);
-        
-        //dd($validatedData);
-       
+               
         $r = new Recipe;
         $r->title = $validatedData['title'];
         $r->ingredients = $validatedData['ingredients'];
@@ -106,6 +104,9 @@ class RecipeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $recipe = Recipe::findOrFail($id);
+        $recipe->delete();
+
+        return redirect()->route('recipes.index')->with('message', 'Recipe has been deleted');
     }
 }

@@ -21,5 +21,11 @@
             <LI>step three</LI>
         </OL>        
     </ul>    
+
+    <form action="{{ route('recipes.destroy', ['id'=> $recipe->id] ) }}" method="post">
+        @csrf
+        @method('DELETE')
+        <button type="submit">Delete</button>
+    </form>
     
 @endsection <!-- sandwiched like this since there is a lot of content -->

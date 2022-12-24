@@ -35,6 +35,16 @@ Route::get('/users', [UserController::class, 'index'])
 Route::get('/users/{id}', [UserController::class, 'show'])
     ->name('users.show');
 
+Route::delete('recipes/{id}', [RecipeController::class, 'destroy'])
+    ->name('recipes.destroy');
+
+/*
+Auth::routes();
+
+Route::get('/home', [HomeController::class, 'index']->name('home');
+*/
+
+
 
 
 
