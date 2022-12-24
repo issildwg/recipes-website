@@ -28,7 +28,7 @@ class RecipeController extends Controller
     public function create()        //doesnt actually create, just gives user the form to create something
     {
 
-        $users = User::get();
+        $users = User::orderBy('name', 'asc')->get();
         return view('recipes.create', ['users' => $users]);
     }
 
