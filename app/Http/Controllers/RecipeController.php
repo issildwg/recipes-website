@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Recipe;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Session;
 
@@ -26,7 +27,9 @@ class RecipeController extends Controller
      */
     public function create()        //doesnt actually create, just gives user the form to create something
     {
-        return view('recipes.create');
+
+        $users = User::get();
+        return view('recipes.create', ['users' => $users]);
     }
 
     /**

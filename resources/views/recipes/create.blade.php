@@ -16,8 +16,16 @@
             value='{{old('ingredients')}}'></p>
         <p>Recipe: <input type='text' name='recipe' 
             value='{{old('recipe')}}'></p>
-        <p>Author: <input type='text' name='user_id' 
-            value='{{old('user_id')}}'></p>
+       
+        <p>Author: 
+            <select name="user_id">
+                @foreach ($users as $user)
+                    <option value="{{$user->id}}">
+                        {{$user->name}}
+                    </option>
+                @endforeach
+            </select>
+        </p>
 
         <input type='submit' value='Submit'>
 
