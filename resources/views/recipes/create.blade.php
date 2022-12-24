@@ -16,6 +16,8 @@
             value='{{old('ingredients')}}'></p>
         <p>Recipe: <input type='text' name='recipe' 
             value='{{old('recipe')}}'></p>
+        <p>Author: <input type='text' name='user_id' 
+            value='{{old('user_id')}}'></p>
 
         <input type='submit' value='Submit'>
 

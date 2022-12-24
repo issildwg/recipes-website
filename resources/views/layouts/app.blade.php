@@ -1,3 +1,5 @@
+@extends('layouts.app')
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -28,13 +30,6 @@
             
             <!-- Page Content -->
             <main>
-                @if ($errors->any())
-                    @foreach ($errors->all() as $error)
-                        <div class="alert alert-danger" role="alert">
-                            {{$error}}
-                        </div>
-                    @endforeach
-                @endif
 
             <div> 
                 @yield('content')
