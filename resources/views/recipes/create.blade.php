@@ -8,11 +8,14 @@
 
         @csrf   {{--security precuation (this is a key) - people cant create their own forms, can only come from this site--}}
 
-        <p>Title: <input type='text' name='title' ></p>
+        <p>Title: <input type='text' name='title' 
+            value='{{old('title')}}'></p>
             {{--find a way to autofill this {$recipe->postable->name}
         <p>Author: <input type='text' name='name' ></p> --}}
-        <p>Ingredients: <input type='text' name='ingredients' ></p>
-        <p>Recipe: <input type='text' name='recipe' ></p>
+        <p>Ingredients: <input type='text' name='ingredients' 
+            value='{{old('ingredients')}}'></p>
+        <p>Recipe: <input type='text' name='recipe' 
+            value='{{old('recipe')}}'></p>
 
         <input type='submit' value='Submit'>
 

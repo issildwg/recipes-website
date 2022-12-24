@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Recipe;
 use Illuminate\Http\Request;
+use Session;
 
 class RecipeController extends Controller
 {
@@ -35,17 +36,31 @@ class RecipeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
+    //
     {
         $validatedData = $request->validate([
             'title' => 'required|max:255',
-            'ingredients' => 'required',
-            'recipe' => 'required'
+            'ingredients' => 'required|min:2',
+            'recipe' => 'required|min:1'
             //'Author' => 'required|user'
         ]);
+        
+        dd($validatedData);
 
-        dd('Passed Validation!');
+        //save before returning!!!
+        /*
+        $r = new Recipe;
+        $r title = $validatedData['title'];
+        $r ingredients = $validatedData['ingredients'];
+        $r recipe = $validatedData['title'];
+        $r->save();
+        session()->flash('message', 'post was created');
+        return redirect()->route('recipes.index);
+        */
     }
 
+    
     /**
      * Display the specified resource.
      *

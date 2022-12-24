@@ -43,7 +43,7 @@ Route::get('/users/{id}', [UserController::class, 'show'])
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');    //the middleware bit makes you have to log in
 
 require __DIR__.'/auth.php';
 
