@@ -20,7 +20,10 @@
         <p>Author: 
             <select name="user_id">
                 @foreach ($users as $user)
-                    <option value="{{$user->id}}">
+                    <option value="{{$user->id}}"
+                        @if ($user->id == old('user_id'))
+                            selected="selected"
+                        @endif>
                         {{$user->name}}
                     </option>
                 @endforeach
