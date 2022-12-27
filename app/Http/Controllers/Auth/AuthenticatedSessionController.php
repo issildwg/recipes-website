@@ -10,6 +10,24 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthenticatedSessionController extends Controller
 {
+
+    public function login(){
+        validator(request()->all(), [
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ])->validate();
+
+        if(auth()->attempt(request()->only(['email', 'password']))){
+            return redirect('dashboard');
+        }
+        return redirect()->back()->withErrors(['email' => 'Invalid Credentials']);
+    }
+
+    public function logout(Request $request) {
+        Auth::logout();
+        return redirect('/login');
+      }
+
     /**
      * Display the login view.
      *

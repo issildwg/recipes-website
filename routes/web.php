@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Http;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,34 +34,33 @@ Route::get('/recipes/{id}', [RecipeController::class, 'show'])
 Route::get('/users', [UserController::class, 'index'])
     ->name('users.index');
 
+
+
+
+
 Route::get('/users/{id}', [UserController::class, 'show'])
     ->name('users.show');
-
+        
 Route::delete('recipes/{id}', [RecipeController::class, 'destroy'])
     ->name('recipes.destroy');
 
-/*
-Auth::routes();
-
-Route::get('/home', [HomeController::class, 'index']->name('home');
-*/
 
 
+//Auth::routes();
+Route::get('/login', [AuthenticatedSessionController::class, 'login']);    //this takes you to dashboard - redirect to recipes or profile?
 
+Route::get('/logout', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'logout']);
 
-
-
-
-
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/', function () {
+    return view('welcome');
 })->middleware(['auth', 'verified'])->name('dashboard');    //the middleware bit makes you have to log in
+
+Route::get('/dashboard', 'DashboardController');
+
 
 require __DIR__.'/auth.php';
 
-
 //testing 
-
 
 
 Route::get('/test', function () {            //takes you to page test if you are logged in - testing out authorisation with the middleware pipeline
