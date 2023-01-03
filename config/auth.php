@@ -2,6 +2,10 @@
 
 return [
 
+
+    //guards work wish session cookies
+    //https://laravel.com/docs/master/authentication#adding-custom-guards
+
     /*
     |--------------------------------------------------------------------------
     | Authentication Defaults

@@ -39,7 +39,7 @@ Route::get('/users', [UserController::class, 'index'])
 
 
 Route::get('/users/{id}', [UserController::class, 'show'])
-    ->name('users.show');
+    ->middleware(['auth', 'verified']) ->name('users.show');
         
 Route::delete('recipes/{id}', [RecipeController::class, 'destroy'])
     ->name('recipes.destroy');
@@ -47,18 +47,28 @@ Route::delete('recipes/{id}', [RecipeController::class, 'destroy'])
 
 
 //Auth::routes();
-Route::get('/login', [AuthenticatedSessionController::class, 'login']);    //this takes you to dashboard - redirect to recipes or profile?
+Route::get('/login', [AuthenticatedSessionController::class, 'login'])
+    ->name('login');    //this takes you to dashboard - redirect to recipes or profile?
 
-Route::get('/logout', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'logout']);
+Route::get('/logout', [\App\Http\Controllers\Auth\AuthenticatedSessionController::class, 'logout'])
+    ->name('logout');
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware(['auth', 'verified'])->name('dashboard');    //the middleware bit makes you have to log in
+})->middleware(['auth', 'verified'])->name('home');    //the middleware bit makes you have to log in
 
-Route::get('/dashboard', 'DashboardController');
+Route::get('/dashboard', function () { 
+    return view('dashboard');         
+})->middleware(['auth', 'verified']) -> name('dashboard');
 
 
 require __DIR__.'/auth.php';
+
+
+/* usefull links
+    localhost/register
+*/
+
 
 //testing 
 
