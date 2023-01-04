@@ -6,8 +6,10 @@
     {{--add page buttons here--}}
     <a href='{{ route('recipes.index') }}'>Recipes</a>
     <a href='{{ route('users.index') }}'>Users</a>
-    {{--<a href='{{ route('logout') }}'>My Profile</a>--}}
 
+    @if(Auth::check())
+        <a href='{{ route('users.show', ['id'=> Auth::getUser()->id ]) }}'>My Profile</a>    
+    @endif
 
     <a href='{{ route('login') }}'>Login</a>
     <a href='{{ route('logout') }}'>Logout</a>

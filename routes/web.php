@@ -6,6 +6,8 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
 
+use App\Http\Controllers\CookieController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -61,6 +63,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');         
 })->middleware(['auth', 'verified']) -> name('dashboard');
 
+
+Route::get('/cookie/set', [CookieController::class, 'setCookie']);
+Route::get('/cookie/get', [CookieController::class, 'getCookie']);
 
 require __DIR__.'/auth.php';
 
