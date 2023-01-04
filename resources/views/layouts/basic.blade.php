@@ -9,9 +9,10 @@
 
     @if(Auth::check())
         <a href='{{ route('users.show', ['id'=> Auth::getUser()->id ]) }}'>My Profile</a>    
+    @else
+        <a href='{{ route('login') }}'>Login</a>
     @endif
-
-    <a href='{{ route('login') }}'>Login</a>
+    
     <a href='{{ route('logout') }}'>Logout</a>
 
 </head>
