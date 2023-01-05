@@ -18,7 +18,7 @@ class AuthenticatedSessionController extends Controller
         ])->validate();
 
         if(auth()->attempt(request()->only(['email', 'password']))){
-            return redirect('/users/{id}');
+            return redirect(route('users.show', ['id'=> Auth::getUser()->id ]));
         }
         return redirect()->back()->withErrors(['email' => 'Invalid Credentials']);
     }
