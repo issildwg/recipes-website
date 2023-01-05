@@ -27,5 +27,18 @@
         @method('DELETE')
         <button type="submit">Delete</button>
     </form>
+
+
+    @section('comment section', 'Comments')
+
+    <p>Comments:</p>
+    <ul>
+    @foreach ($comments as $comment)
+        <li>{{$comment->comment}}</a></li>
+    @endforeach
+    </ul>   
+        
+
+
     
 @endsection <!-- sandwiched like this since there is a lot of content -->

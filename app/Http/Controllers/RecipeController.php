@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Recipe;
 use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Http\Request;
 use Session;
 use Illuminate\Support\Facades\DB;
@@ -73,7 +74,10 @@ class RecipeController extends Controller
     public function show($id)
     {
         $recipe = Recipe::findOrFail($id);
-        return view('recipes.show', ['recipe' => $recipe]);
+        $comments = Comment::where('recipe_id',($id))->get(); // prints recipes but gives its a super weird format  
+
+        return view('recipes.show', ['recipe' => $recipe, 'comments' => $comments]);
+
     }
 
     /**
