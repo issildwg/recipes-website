@@ -59,7 +59,7 @@ class RecipeController extends Controller
         $r = new Recipe;
         $r->title = $validatedData['title'];
         $r->ingredients = $validatedData['ingredients'];
-        $r->recipe = $validatedData['title'];
+        $r->recipe = $validatedData['recipe'];
         $r->user_id = $userID;
         $r->save();
 
