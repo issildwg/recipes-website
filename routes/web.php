@@ -25,7 +25,7 @@ Route::get('/recipes', [RecipeController::class, 'index'])
 
 //      create recipe forms
 Route::get('recipes/create', [RecipeController::class, 'create'])
-    ->name('recipes.create');
+    ->middleware(['auth', 'verified'])->name('recipes.create');
 
 Route::post('recipes', [RecipeController::class, 'store'])
     ->name('recipes.store');
@@ -34,7 +34,7 @@ Route::get('/recipes/{id}', [RecipeController::class, 'show'])
     ->name('recipes.show'); //this bit helps with the linking
     
 Route::delete('recipes/{id}', [RecipeController::class, 'destroy'])
-    ->name('recipes.destroy');
+    ->middleware(['auth', 'verified'])->name('recipes.destroy');
    
     
 Route::get('/users/{id}', [UserController::class, 'show'])
@@ -45,7 +45,7 @@ Route::get('/users', [UserController::class, 'index'])
 
 
 Route::get('comment/create', [CommentController::class, 'create'])
-    ->name('comment.create');
+    ->middleware(['auth', 'verified'])->name('comment.create');
 
 Route::post('comment', [CommentController::class, 'store'])
     ->name('comment.store');
@@ -59,11 +59,11 @@ Route::get('/logout', [\App\Http\Controllers\Auth\AuthenticatedSessionController
 
 Route::get('/', function () {
     return view('welcome');
-})->middleware(['auth', 'verified'])->name('home');    //the middleware bit makes you have to log in
+})->name('home');    //the middleware bit makes you have to log in
 
 Route::get('/dashboard', function () { 
     return view('dashboard');         
-})->middleware(['auth', 'verified']) -> name('dashboard');
+})-> name('dashboard');
 
 
 Route::get('/cookie/set', [CookieController::class, 'setCookie']);

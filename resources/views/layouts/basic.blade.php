@@ -12,18 +12,16 @@
         <a href='{{ route('logout') }}'>Logout</a>
     @else
         <a href='{{ route('login') }}'>Login</a>
-        {{--register
-        <a href='{{ route('register') }}'>Register</a>
-
-            --}}
+        <a href='{{ ('/register') }}'>Register</a>
     @endif
     
-    
+    @livewireStyles
 
 </head>
 
 <!-- the yield allows this to be a template info can just be passed into -->
 <body>
+    @livewireScripts
     <h1>@yield('title')</h1>
 
     <div>

@@ -55,6 +55,8 @@ class CommentController extends Controller
         $c->user_id = $userID;
         $c->save();
       
+        session()->flash('message', 'comment was posted');
+        return redirect()->route('recipes.index');
     }
 
     /**
