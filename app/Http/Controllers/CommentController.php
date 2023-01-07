@@ -7,8 +7,9 @@ use App\Models\Comment;
 use Illuminate\Http\Request;
 use Session;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
-class RecipeController extends Controller
+class CommentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +18,7 @@ class RecipeController extends Controller
      */
     public function index()
     {
-        //Think of this like a homepage
-        $recipes = Recipe::get();
-        return view('recipes.index', [
-            'recipes' => DB::table('recipes')->paginate(10)
-        ]);      //second arg = array of data being sent to view
+        //
     }
 
     /**
@@ -29,12 +26,10 @@ class RecipeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()        //doesnt actually create, just gives user the form to create something
+    public function create()
     {
-
-        $users = User::orderBy('name', 'asc')->get();
-        return view('recipes.create', ['users' => $users]);
-        //the above sends data 'users' to the view
+        $recipes = Recipe::orderBy('title', 'asc')->get();
+        return view('comment.create', ['recipes' => $recipes]);
     }
 
     /**
@@ -46,24 +41,22 @@ class RecipeController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|max:255',
-            'ingredients' => 'required|min:2',
             'recipe' => 'required|min:1',
-            'user_id' => 'required|min:1'
+            'comment' => 'required|min:1'  
         ]);
-               
-        $r = new Recipe;
-        $r->title = $validatedData['title'];
-        $r->ingredients = $validatedData['ingredients'];
-        $r->recipe = $validatedData['title'];
-        $r->user_id = $validatedData['user_id'];
-        $r->save();
 
-        session()->flash('message', 'post was created');
-        return redirect()->route('recipes.index');
+
+        $user = Auth::user();
+        $userID = Auth::id();
+
+        $c = new Comment;
+        $c->recipe_id = $validatedData['recipe'];
+        $c->comment = $validatedData['comment'];
+        $c->user_id = $userID;
+        $c->save();
+      
     }
 
-    
     /**
      * Display the specified resource.
      *
@@ -72,11 +65,7 @@ class RecipeController extends Controller
      */
     public function show($id)
     {
-        $recipe = Recipe::findOrFail($id);
-        $comments = Comment::where('recipe_id',($id))->get(); // prints recipes but gives its a super weird format  
-
-        return view('recipes.show', ['recipe' => $recipe, 'comments' => $comments]);
-
+        //
     }
 
     /**
@@ -110,9 +99,6 @@ class RecipeController extends Controller
      */
     public function destroy($id)
     {
-        $recipe = Recipe::findOrFail($id);
-        $recipe->delete();
-
-        return redirect()->route('recipes')->with('message', 'Recipe has been deleted');
+        //
     }
 }

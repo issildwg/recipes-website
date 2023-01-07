@@ -37,7 +37,8 @@
         <li>{{$comment->comment}}</a></li>
     @endforeach
     </ul>   
-        
+     
+    <p><a href='{{ route('comment.create') }}'>New Comment</a></p>
 
 
     

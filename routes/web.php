@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Http\Request;
@@ -32,21 +33,22 @@ Route::post('recipes', [RecipeController::class, 'store'])
 Route::get('/recipes/{id}', [RecipeController::class, 'show'])
     ->name('recipes.show'); //this bit helps with the linking
     
-
+Route::delete('recipes/{id}', [RecipeController::class, 'destroy'])
+    ->name('recipes.destroy');
+   
+    
+Route::get('/users/{id}', [UserController::class, 'show'])
+    ->middleware(['auth', 'verified']) ->name('users.show');
+        
 Route::get('/users', [UserController::class, 'index'])
     ->name('users.index');
 
 
+Route::get('comment/create', [CommentController::class, 'create'])
+    ->name('comment.create');
 
-
-
-Route::get('/users/{id}', [UserController::class, 'show'])
-    ->middleware(['auth', 'verified']) ->name('users.show');
-        
-Route::delete('recipes/{id}', [RecipeController::class, 'destroy'])
-    ->name('recipes.destroy');
-
-
+Route::post('comment', [CommentController::class, 'store'])
+    ->name('comment.store');
 
 //Auth::routes();
 Route::get('/login', [AuthenticatedSessionController::class, 'login'])
