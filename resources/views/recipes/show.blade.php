@@ -34,7 +34,7 @@
     <p>Comments:</p>
     <ul>
     @foreach ($comments as $comment)
-        <li>{{$comment->comment}}</a></li>
+        <li>{{$comment->commentableUser->name}} - {{$comment->comment}}</a></li>
     @endforeach
     </ul>   
      

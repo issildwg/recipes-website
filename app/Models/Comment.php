@@ -13,11 +13,11 @@ class Comment extends Model
     
     public function commentableUser()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo('App\Models\User', 'user_id');
     }
 
     public function commentableRecipe()
     {
-        return $this->belongsTo('App\Models\Recipe');
+        return $this->belongsTo('App\Models\Recipe', 'recipe_id');
     }
 }

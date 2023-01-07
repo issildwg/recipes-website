@@ -7,6 +7,8 @@ use App\Models\Comment;
 use Illuminate\Http\Request;
 use Session;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+
 
 class RecipeController extends Controller
 {
@@ -49,14 +51,16 @@ class RecipeController extends Controller
             'title' => 'required|max:255',
             'ingredients' => 'required|min:2',
             'recipe' => 'required|min:1',
-            'user_id' => 'required|min:1'
         ]);
                
+        $user = Auth::user();
+        $userID = Auth::id();
+      
         $r = new Recipe;
         $r->title = $validatedData['title'];
         $r->ingredients = $validatedData['ingredients'];
         $r->recipe = $validatedData['title'];
-        $r->user_id = $validatedData['user_id'];
+        $r->user_id = $userID;
         $r->save();
 
         session()->flash('message', 'post was created');
@@ -74,8 +78,10 @@ class RecipeController extends Controller
     {
         $recipe = Recipe::findOrFail($id);
         $comments = Comment::where('recipe_id',($id))->get(); // prints recipes but gives its a super weird format  
+        $users = User::get();
 
-        return view('recipes.show', ['recipe' => $recipe, 'comments' => $comments]);
+
+        return view('recipes.show', ['recipe' => $recipe, 'comments' => $comments, 'user' => $users]);
 
     }
 
