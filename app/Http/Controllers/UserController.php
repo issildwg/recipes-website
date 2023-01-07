@@ -51,7 +51,6 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);  //findOrFail allows 404 errors instead of breaking the code
         $recipes = Recipe::where('user_id',($id))->get(); // prints recipes but gives its a super weird format  
-
     
         return view('users.show', ['user' => $user, 'recipes' => $recipes]); 
     }
@@ -64,7 +63,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -76,7 +76,21 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        $user = User::find($id);
+        $user->name = $request->get('name');
+        $user->email = $request->get('email');
+        $user->password = $request->get('password');
+        $user->save();
+
+        return redirect()->route('users.index')
+                ->with('success', 'updated successfully');
+
     }
 
     /**

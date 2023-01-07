@@ -37,6 +37,14 @@ Route::delete('recipes/{id}', [RecipeController::class, 'destroy'])
     ->middleware(['auth', 'verified'])->name('recipes.destroy');
    
     
+Route::get('/users/{id}/edit', [UserController::class, 'edit'])
+    ->middleware(['auth', 'verified'])->name('users.edit');
+  
+Route::post('/users/{id}/update', [UserController::class, 'update'])
+    ->name('users.update');
+  
+
+    
 Route::get('/users/{id}', [UserController::class, 'show'])
     ->middleware(['auth', 'verified']) ->name('users.show');
         
