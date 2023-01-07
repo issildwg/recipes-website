@@ -5,6 +5,7 @@ use App\Models\User;
 use App\Models\Recipe;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -63,6 +64,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        $user = Auth::user();
+        $userID = Auth::id();
         $user = User::find($id);
         return view('users.edit', compact('user'));
     }

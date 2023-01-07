@@ -3,6 +3,8 @@
 @section('title', 'User Profile')
 
 @section('content')
+        <p><a href='{{ route('users.edit', [$user->id]) }}'>Edit profile</a></p>
+
     
         <p>Name: {{$user->name}}</p>
         <p>Email: {{$user->email}}</p>
@@ -26,6 +28,7 @@
         </p>
 
         <p><a href='{{ route('recipes.create') }}'>New Recipe</a></p>
+
 
 
    
