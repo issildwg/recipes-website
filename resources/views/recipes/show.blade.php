@@ -26,14 +26,19 @@
         </OL>        
     </ul>    
 
-    <p><a href='{{ route('recipes.edit', [$recipe->id]) }}'>Edit recipe</a></p>
+
+    @if(Auth::check())
+        <p><a href='{{ route('recipes.edit', [$recipe->id]) }}'>Edit recipe</a></p>
 
 
-    <form action="{{ route('recipes.destroy', ['id'=> $recipe->id] ) }}" method="post">
-        @csrf
-        <button type="submit">Delete</button>
-    </form>
+        <form action="{{ route('recipes.destroy', ['id'=> $recipe->id] ) }}" method="post">
+            @csrf
+            <button type="submit">Delete</button>
+        </form>
+    @endif
 
+
+  
     
 
 

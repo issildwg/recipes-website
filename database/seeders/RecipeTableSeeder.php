@@ -24,6 +24,6 @@ class RecipeTableSeeder extends Seeder
         $Egg->save();
 
             //recipe factory
-        \App\Models\Recipe::factory(3)->create();
+        \App\Models\Recipe::factory(15)->create();
     }
 }

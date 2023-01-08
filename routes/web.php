@@ -31,7 +31,7 @@ Route::post('recipes', [RecipeController::class, 'store'])
     ->name('recipes.store');
 
 Route::get('/recipes/{id}/edit', [RecipeController::class, 'edit'])
-    ->name('recipes.edit');
+    ->middleware(['auth', 'verified'])->name('recipes.edit');
   
 Route::post('/recipes/{id}/update', [RecipeController::class, 'update'])
     ->name('recipes.update');
@@ -49,7 +49,8 @@ Route::get('/users/{id}/edit', [UserController::class, 'edit'])
 Route::post('/users/{id}/update', [UserController::class, 'update'])
     ->name('users.update');
   
-
+    Route::get('/users/{id}/posts', [UserController::class, 'posts'])
+    ->middleware(['auth', 'verified'])->name('users.posts');
     
 Route::get('/users/{id}', [UserController::class, 'show'])
     ->middleware(['auth', 'verified']) ->name('users.show');

@@ -23,6 +23,6 @@ class UserTableSeeder extends Seeder
         $P1->password = "12345678";
         $P1->save();
 
-        \App\Models\User::factory(3)->create();
+        \App\Models\User::factory(6)->create();
     }
 }
