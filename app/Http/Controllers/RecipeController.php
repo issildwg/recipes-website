@@ -139,6 +139,6 @@ class RecipeController extends Controller
         $recipe = Recipe::findOrFail($id);
         $recipe->delete();
 
-        return redirect()->route('recipes')->with('message', 'Recipe has been deleted');
+        return redirect()->route('recipes.index')->with('message', 'Recipe has been deleted');
     }
 }

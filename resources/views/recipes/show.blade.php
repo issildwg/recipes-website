@@ -30,9 +30,10 @@
     @if(Auth::check())
         <p><a href='{{ route('recipes.edit', [$recipe->id]) }}'>Edit recipe</a></p>
 
-
-        <form action="{{ route('recipes.destroy', ['id'=> $recipe->id] ) }}" method="post">
+        <form method="POST"
+            action="{{ route('recipes.destroy', ['id'=> $recipe->id] ) }}">
             @csrf
+            @method('DELETE')
             <button type="submit">Delete</button>
         </form>
     @endif
