@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\User;
 use App\Models\Recipe;
+use App\Models\Comment;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -54,6 +55,21 @@ class UserController extends Controller
         $recipes = Recipe::where('user_id',($id))->get(); // prints recipes but gives its a super weird format  
     
         return view('users.show', ['user' => $user, 'recipes' => $recipes]); 
+    }
+
+        /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function posts($id)
+    {
+        $user = User::findOrFail($id);  //findOrFail allows 404 errors instead of breaking the code
+        $recipes = Recipe::where('user_id',($id))->get(); 
+        $comments = Comment::where('user_id',($id))->get(); 
+
+        return view('users.posts', ['user' => $user, 'recipes' => $recipes, 'comments' => $comments]); 
     }
 
     /**

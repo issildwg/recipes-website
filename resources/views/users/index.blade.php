@@ -6,9 +6,10 @@
     <p>Users:</p>
         <ul>
             @foreach ($users as $user)
-                <li>{{$user->name}}</li> <!-- lists -->
+                <li><a href='/users/{{$user->id}}/posts'>{{$user->name}}</a></li>
+
             @endforeach
 
-        </ul>                  <!-- unordered list -->
+        </ul>
         
-@endsection <!-- sandwiched like this since there is a lot of content -->
+@endsection 
