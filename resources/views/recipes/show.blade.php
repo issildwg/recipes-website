@@ -26,16 +26,21 @@
         </OL>        
     </ul>    
 
+    <p><a href='{{ route('recipes.edit', [$recipe->id]) }}'>Edit recipe</a></p>
+
+
     <form action="{{ route('recipes.destroy', ['id'=> $recipe->id] ) }}" method="post">
         @csrf
-        @method('DELETE')
         <button type="submit">Delete</button>
     </form>
+
+    
+
 
 
     @section('comment section', 'Comments')
 
-    <p>Comments:</p>
+    <h3>Comments:</h3>
     <ul>
     @foreach ($comments as $comment)
         <li>{{$comment->commentableUser->name}} - {{$comment->comment}}</a></li>

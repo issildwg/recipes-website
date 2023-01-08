@@ -30,13 +30,19 @@ Route::get('recipes/create', [RecipeController::class, 'create'])
 Route::post('recipes', [RecipeController::class, 'store'])
     ->name('recipes.store');
 
+Route::get('/recipes/{id}/edit', [RecipeController::class, 'edit'])
+    ->name('recipes.edit');
+  
+Route::post('/recipes/{id}/update', [RecipeController::class, 'update'])
+    ->name('recipes.update');
+
 Route::get('/recipes/{id}', [RecipeController::class, 'show'])
     ->name('recipes.show'); //this bit helps with the linking
     
 Route::delete('recipes/{id}', [RecipeController::class, 'destroy'])
     ->middleware(['auth', 'verified'])->name('recipes.destroy');
    
-    
+
 Route::get('/users/{id}/edit', [UserController::class, 'edit'])
     ->middleware(['auth', 'verified'])->name('users.edit');
   

@@ -98,7 +98,9 @@ class RecipeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $recipe = Recipe::findOrFail($id);
+        return view('recipes.edit', ['recipe' => $recipe] );
+        
     }
 
     /**
@@ -110,7 +112,20 @@ class RecipeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'ingredients' => 'required',
+            'recipe' => 'required'
+        ]);
+
+        $recipe = Recipe::find($id);
+        $recipe->title = $request->get('title');
+        $recipe->ingredients = $request->get('ingredients');
+        $recipe->recipe = $request->get('recipe');
+        $recipe->save();
+
+        return redirect()->route('recipes.index')
+                ->with('success', 'updated successfully');
     }
 
     /**
