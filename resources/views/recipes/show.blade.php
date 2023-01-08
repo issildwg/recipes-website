@@ -11,6 +11,14 @@
             <LI>{{$recipe->ingredients}}</LI>
         </UL>       
         
+        <p>  </p>
+
+    
+        @if($recipe->image != null)
+
+            <img src="{{ ($recipe->image) }}" class="card-img-top">
+        @endif
+
         <p>Recipe: </p>     
         {{-- numbers for method  -> write this as while loop? (-> first etc)--}}
         <OL>
@@ -35,6 +43,7 @@
     </ul>   
      
     <p><a href='{{ route('comment.create') }}'>New Comment</a></p>
+
 
 
     

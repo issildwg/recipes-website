@@ -18,7 +18,8 @@ return new class extends Migration
             $table->timestamps();
             $table->string('title');
             $table->string('ingredients');
-            $table->string('recipe');        
+            $table->string('recipe');   
+            $table->string('image')->nullable();     
 
             //bigInteger = primary key to user
             $table->unsignedBigInteger('user_id');

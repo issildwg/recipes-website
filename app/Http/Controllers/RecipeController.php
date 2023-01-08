@@ -50,16 +50,21 @@ class RecipeController extends Controller
         $validatedData = $request->validate([
             'title' => 'required|max:255',
             'ingredients' => 'required|min:2',
-            'recipe' => 'required|min:1',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'recipe' => 'required|min:1'
         ]);
                
         $user = Auth::user();
         $userID = Auth::id();
-      
+
+        $imageName = time().'.'.$request->image->extension();  
+        $request->image->move(public_path('images'), $imageName);
+
         $r = new Recipe;
         $r->title = $validatedData['title'];
         $r->ingredients = $validatedData['ingredients'];
         $r->recipe = $validatedData['recipe'];
+        $r->image = $validatedData['image'];
         $r->user_id = $userID;
         $r->save();
 
