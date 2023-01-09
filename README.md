@@ -1,3 +1,15 @@
+To launch this application, start running desktop docker. 
+Once this has been loaded up correctly, open up Ubuntu 20.04.5 with admin rights.
+in docker type these commands:
+    cd recipes/
+    code .
+    ./vendor/bin/sail up
+in the terminal in visual studio, type these commands:
+    ./vendor/bin/sail artisan migrate:fresh
+    ./vendor/bin/sail artisan db:seed
+then in your browser, navigate to localhost/dashboard and youre in :)
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
