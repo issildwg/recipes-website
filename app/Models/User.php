@@ -18,7 +18,6 @@ class User extends Authenticatable
         //The attributes that should be hidden for serialization.
     protected $hidden = ['password', 'remember_token',];
 
-
         //links the posts and comments to this
     public function recipes(){
         return $this->hasMany('App\Models\Recipe', 'postable');      //postable and is a method in Recipe.php

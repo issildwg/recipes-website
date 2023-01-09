@@ -29,8 +29,5 @@
 
         <p><a href='{{ route('recipes.create') }}'>New Recipe</a></p>
 
-
-
-   
     
 @endsection <!-- sandwiched like this since there is a lot of content -->

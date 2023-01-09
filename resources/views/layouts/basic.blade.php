@@ -15,8 +15,6 @@
         <a href='{{ ('/register') }}'>Register</a>
     @endif
     
-    @livewireStyles
-
 </head>
 
 <!-- the yield allows this to be a template info can just be passed into -->

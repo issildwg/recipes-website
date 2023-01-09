@@ -82,12 +82,10 @@ class RecipeController extends Controller
     public function show($id)
     {
         $recipe = Recipe::findOrFail($id);
-        $comments = Comment::where('recipe_id',($id))->get(); // prints recipes but gives its a super weird format  
+        $comments = Comment::where('recipe_id',($id))->get(); 
         $users = User::get();
 
-
         return view('recipes.show', ['recipe' => $recipe, 'comments' => $comments, 'user' => $users]);
-
     }
 
     /**
@@ -100,7 +98,6 @@ class RecipeController extends Controller
     {
         $recipe = Recipe::findOrFail($id);
         return view('recipes.edit', ['recipe' => $recipe] );
-        
     }
 
     /**

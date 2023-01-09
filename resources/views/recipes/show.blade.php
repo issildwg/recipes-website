@@ -10,10 +10,7 @@
         <UL>
             <LI>{{$recipe->ingredients}}</LI>
         </UL>       
-        
-        <p>  </p>
-
-    
+ 
         @if($recipe->image != null)
 
             <img src="{{ ($recipe->image) }}" class="card-img-top">
@@ -39,9 +36,6 @@
     @endif
 
 
-  
-    
-
 
 
     @section('comment section', 'Comments')
@@ -54,8 +48,7 @@
     </ul>   
      
     <p><a href='{{ route('comment.create') }}'>New Comment</a></p>
-
-
-
     
-@endsection <!-- sandwiched like this since there is a lot of content -->
+@endsection
+
+
